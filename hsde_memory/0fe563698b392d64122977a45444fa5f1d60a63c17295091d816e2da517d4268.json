@@ -1,0 +1,25 @@
+{
+  "problem": "Prove that the sum of the first n even numbers is n(n+1)",
+  "assumptions": [
+    "Definition of even numbers: 2, 4, 6, ..., 2n",
+    "Formula for sum of arithmetic sequence: S = n/2*(a1 + an)"
+  ],
+  "methods": [
+    "mathematical induction"
+  ],
+  "symbolic_steps": [
+    {
+      "step": "Base Case",
+      "reasoning": "For n = 1: 2 = 1(1 + 1) = 2 \u2705"
+    },
+    {
+      "step": "Inductive Step",
+      "reasoning": "Assume sum of first k even numbers = k(k+1). Show for k+1."
+    },
+    {
+      "step": "Expand S(k+1)",
+      "reasoning": "S(k+1) = S(k) + 2(k+1) = k(k+1) + 2(k+1) = (k+1)(k+2)"
+    }
+  ],
+  "conclusion": "The sum of the first n even numbers is n(n+1)"
+}

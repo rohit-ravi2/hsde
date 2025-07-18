@@ -1,0 +1,50 @@
+{
+  "problem": "Prove that the sum of the first n odd numbers is n\u00b2.",
+  "assumptions": [
+    "The first odd number is 1.",
+    "Every subsequent odd number increases by 2.",
+    "The nth odd number is 2n - 1."
+  ],
+  "methods": [
+    "induction"
+  ],
+  "symbolic_steps": [
+    {
+      "step": "Base Case",
+      "reasoning": "For n = 1, the first odd number is 1. And 1\u00b2 = 1, so the base case holds.",
+      "expression": "Eq(Sum(2*n - 1, (n, 1, 1)), 1**2)",
+      "ast_repr": "Eq(Sum(2*n - 1, (n, 1, 1)), 1)"
+    },
+    {
+      "step": "Inductive Hypothesis",
+      "reasoning": "Assume that for some k, the sum of the first k odd numbers is k\u00b2.",
+      "expression": "Eq(Sum(2*n - 1, (n, 1, k)), k**2)",
+      "ast_repr": "Eq(Sum(2*n - 1, (n, 1, k)), k**2)"
+    },
+    {
+      "step": "Inductive Step Expansion",
+      "reasoning": "Add (2*k + 1) to the previous sum.",
+      "expression": "Eq(Sum(2*n - 1, (n, 1, k+1)), Sum(2*n - 1, (n, 1, k)) + (2*k + 1))",
+      "ast_repr": "Eq(Sum(2*n - 1, (n, 1, k + 1)), 2*k + Sum(2*n - 1, (n, 1, k)) + 1)"
+    },
+    {
+      "step": "Substitute Hypothesis",
+      "reasoning": "Use the inductive hypothesis to substitute k\u00b2.",
+      "expression": "Eq(Sum(2*n - 1, (n, 1, k+1)), k**2 + 2*k + 1)",
+      "ast_repr": "Eq(Sum(2*n - 1, (n, 1, k + 1)), k**2 + 2*k + 1)"
+    },
+    {
+      "step": "Simplify",
+      "reasoning": "Simplify k\u00b2 + 2k + 1 into (k + 1)\u00b2.",
+      "expression": "Eq(k**2 + 2*k + 1, (k + 1)**2)",
+      "ast_repr": "Eq(k**2 + 2*k + 1, (k + 1)**2)"
+    },
+    {
+      "step": "Conclude Inductive Step",
+      "reasoning": "Thus, sum of first k+1 odd numbers is (k + 1)\u00b2.",
+      "expression": "Eq(Sum(2*n - 1, (n, 1, k+1)), (k + 1)**2)",
+      "ast_repr": "Eq(Sum(2*n - 1, (n, 1, k + 1)), (k + 1)**2)"
+    }
+  ],
+  "conclusion": "Since the base case and inductive step hold, the sum of the first n odd numbers is n\u00b2 for all positive integers n."
+}
